@@ -1,0 +1,6 @@
+---
+description: Risk-based testing rules
+alwaysApply: false
+---
+Choose tests by failure risk: domain rules, boundaries, failures, data integrity, concurrency, API contract, and critical user paths.
+Do not turn every test into either a mock unit test or an E2E test.

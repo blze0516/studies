@@ -1,0 +1,7 @@
+---
+description: Java and Spring rules for later backend days
+alwaysApply: false
+---
+Use Java and Spring Boot versions from `VERSION_LOCK.md`.
+Prefer Spring Boot dependency management over forcing individual Spring module versions.
+Keep controller contracts, service transaction boundaries, and persistence integrity responsibilities explicit.

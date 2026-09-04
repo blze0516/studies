@@ -1,0 +1,9 @@
+---
+description: Take-home 2026 project-wide rules
+alwaysApply: true
+---
+- Read `PROJECT_RULES.md`, `AI_POLICY.md`, and `VERSION_LOCK.md` before suggesting project-wide changes.
+- Prefer the smallest change that satisfies the stated requirement.
+- Do not add a dependency unless its need, source, version compatibility, and verification are clear.
+- Separate observed facts, assumptions, and inferences.
+- Never claim a command/test was run unless there is an observed result.

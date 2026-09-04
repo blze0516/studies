@@ -1,0 +1,7 @@
+---
+description: Verification rules for AI-assisted changes
+alwaysApply: true
+---
+Treat AI output as a proposal, not truth.
+For generated code: inspect the diff, verify package/API provenance, run relevant tests, and make sure the human can explain the change.
+Do not hide rejected suggestions or known limitations when they matter to the assessment.

@@ -1,0 +1,6 @@
+---
+description: Security baseline rules
+alwaysApply: false
+---
+Never place real secrets in source, examples, logs, or `.env.example`.
+Review authentication, authorization, ownership, validation, PII/logging, and dependency provenance when relevant.

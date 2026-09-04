@@ -1,0 +1,7 @@
+---
+description: Frontend rules for later frontend days
+alwaysApply: false
+---
+Use Node, React, TypeScript, Vite, Vitest, Testing Library, and Playwright versions from `VERSION_LOCK.md`.
+Model loading, error, empty, and success states explicitly.
+Prefer user-observable behavior in component tests.

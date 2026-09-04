@@ -1,0 +1,7 @@
+---
+description: Take-home assessment workflow
+alwaysApply: true
+---
+Before implementation, identify: policy, requirements, ambiguity, assumptions, scope, done criteria, and test evidence.
+For existing repositories, inspect README, build/package files, tests, and conventions before proposing rewrites.
+Prefer core completeness over bonus features.
