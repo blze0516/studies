@@ -17,6 +17,27 @@
 - `lessons/day001/review.md`
 - `lessons/day001/assessment_landscape.md`
 
+## Day 2
+
+주제: **요구사항 추출과 Ambiguity Log**
+
+핵심 산출물:
+
+- `lessons/day002/lecture.md`
+- `lessons/day002/practice.md`
+- `lessons/day002/exercises.md`
+- `lessons/day002/review.md`
+- `docs/requirements/REQUIREMENTS.md`
+
+Day 2에서는 모호한 예약 과제를 Functional/NFR/Constraint/Ambiguity/Assumption/Acceptance Criteria/Out of Scope로 분해한다. 버전 Lock은 변경하지 않는다.
+
+### Day 2 확인
+
+```bash
+test -f docs/requirements/REQUIREMENTS.md && echo OK
+grep -n 'FR-\|AMB-\|Q-\|ASM-\|AC-' docs/requirements/REQUIREMENTS.md
+```
+
 ## Source of Truth
 
 - Curriculum: `curriculum/take_home_assignment_curriculum.md`
