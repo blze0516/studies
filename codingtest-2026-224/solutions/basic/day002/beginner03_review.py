@@ -4,15 +4,13 @@ input = sys.stdin.readline
 
 
 def solve() -> None:
-    # 입력: 4
-    # 핵심 조건: 양의 정수 N이 주어진다. 1부터 N까지 한 줄에 하나씩 출력하라.
-    # 예상 시간복잡도: O(N)
+    # [채점] 정답
+    # 시간복잡도: O(N)  — 원본과 동일. 1부터 N까지 N번 출력한다.
+    # 공간복잡도: O(1)  — 반복 변수만 사용한다.
     num = int(input())
 
     for i in range(1, num + 1):
         print(i)
-
-    pass
 
 
 if __name__ == "__main__":

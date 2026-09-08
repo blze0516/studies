@@ -4,16 +4,17 @@ input = sys.stdin.readline
 
 
 def solve() -> None:
-    # 입력: 5
-    # 핵심 조건: 1 <= N <= 10000
-    # 예상 시간복잡도: O(N)
+    # 입력: 10
+    # 핵심 조건: 1 <= N <= 100000
+    # 예상 시간복잡도: O(1)
     num = int(input())
-    sum = 0
+    count = 0
 
     for i in range(1, num + 1):
-        sum += i
+        if i % 3 == 0:
+            count += 1
         
-    print(sum)
+    print(count)
 
     pass
 
