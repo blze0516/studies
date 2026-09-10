@@ -38,6 +38,22 @@ test -f docs/requirements/REQUIREMENTS.md && echo OK
 grep -n 'FR-\|AMB-\|Q-\|ASM-\|AC-' docs/requirements/REQUIREMENTS.md
 ```
 
+
+## Day 4
+
+주제: **Acceptance Criteria + Definition of Done**
+
+핵심 산출물:
+
+- `lessons/day004/lecture.md`
+- `lessons/day004/practice.md`
+- `lessons/day004/exercises.md`
+- `lessons/day004/exercise-solutions.md`
+- `lessons/day004/review.md`
+- `docs/requirements/ACCEPTANCE_CRITERIA.md`
+
+Day 4에서는 Day 2~3의 예약 요구사항/Timebox를 Given/When/Then 15개와 Definition of Done으로 연결한다. 새 기술이 없으므로 `VERSION_LOCK.md`는 변경하지 않는다.
+
 ## Source of Truth
 
 - Curriculum: `curriculum/take_home_assignment_curriculum.md`
@@ -53,3 +69,11 @@ sed -n '1,120p' lessons/day001/assessment_landscape.md
 ```
 
 아직 애플리케이션 build는 없다. Day 1의 Evidence는 **평가 유형을 분류하고, 공개 과제에서 평가 신호를 근거와 함께 추출한 문서**다.
+
+
+## Learning Progress
+
+- Day 1: Complete
+- Day 2: Complete
+- Day 3: Complete — Must/Should/Could + Timeboxing
+- Day 4: Complete — Acceptance Criteria + Definition of Done

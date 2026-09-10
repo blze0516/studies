@@ -29,181 +29,118 @@ flowchart TD
 
 ---
 
-# 2. Public Source 1 — Simplify Backend Take-home
+# 2. Simplify Backend Take-home
 
 - Source: https://github.com/SimplifyJobs/backend-take-home
-- 분류: **기업 first-party 공개 Backend Take-home**
-- 과정 내 재사용 Day: Day 78
+- 원문 확인: `README.md`, `CHALLENGE.md`, starter의 `tests/`, `takehome/mock.py` (2026-09-10, `master`)
 
-## Observed / curriculum-supported facts
+### Observed Facts
+- Source type: 기업 first-party 공개 Backend Take-home. FastAPI starter repository가 있다.
+- Starting point: 기존 boilerplate. 템플릿 사용은 권장이며 필수는 아니다. 쓰려면 boilerplate와 같은 FastAPI application name으로 실행 가능해야 한다.
+- Explicit timebox: 원문에 시간 제한이 없다.
+- AI policy: 원문에 AI 허용/금지 문장이 없다.
+- Internet/document policy: 원문에 인터넷·문서 검색 정책이 없다.
+- Required behavior:
+  - Part 1: Project/Candidate 모델·스키마, CRUD, Pydantic 검증·에러 처리, API unit test, logging
+  - Part 2: `POST /api/form-team/` 팀 매칭. 스킬 커버·전문성 최대, overlap 최소. 전부 못 커버하면 가능한 범위에서 coverage·expertise를 최대화
+  - Part 3: flaky mock scoring API를 Candidate에 연동. retry, (권장) parallelize/cache. Candidate Read와 form-team 응답에 score 포함
+- Test/build/run requirement:
+  - 의존성: Python 3.12+, Poetry 1.8+
+  - 실행: `poetry run dev`, mock은 `poetry run mock`, 테스트는 `poetry run pytest`
+  - API endpoint unit test를 요구한다
+  - 알고리즘은 최대 제약에서 예: 5초 이내
+  - `takehome/mock.py`는 수정하지 말라고 적혀 있다
+  - starter `tests/test_app.py`는 수정해도 된다고 적혀 있다
+- Submission format: 이 repo를 fork하거나 새 repo를 만든다. GitHub repository 링크를 제출한다.
+- Documentation requirement: `SUBMISSION.md`에 알고리즘·시간복잡도, assumptions, 완료 기능/known issues, 실행 특별 지시. 코드 주석과 README 설명도 평가 항목에 있다.
+- Public/fork restriction: fork를 금지하지 않는다. fork 또는 새 저장소 모두 허용이다.
+- Bonus (Brownie Points): lint, auth, custom logger, pagination, sort/filter, GitHub CI. 필수는 아니고 bonus로 본다고 명시한다.
 
-- 공개 repository 형태의 backend Take-home이다.
-- starter repository를 읽는 연습에 사용한다.
-- mock grading server / existing tests를 이해하고 보존하는 흐름을 학습한다.
-- 기존 구조 위에서 필요한 backend behavior를 최소 구현하는 연습으로 사용한다.
+### Unknown / Not stated
+- 제한 시간
+- AI 사용 정책
+- 인터넷/외부 문서 허용 범위
+- 공식 scoring rubric / 항목별 배점
+- 기존 starter test를 절대 깨면 안 된다는 문장 (index HTML test는 있으나, 파일 수정을 권장한다)
+- 데이터베이스 종류 (SQL/ORM 강제 없음)
+- production deploy 요구
 
-## Inferred evaluation signals
+### Inferred Evaluation Signals
+1. Signal: starter/mock을 읽고 필요한 위치에 최소 구현하는 능력
+   - Evidence from README: boilerplate 권장, `poetry run mock`/`pytest`, `mock.py` 수정 금지, 같은 application name
+   - Why I infer this: 새 프로젝트를 멋지게 만드는 속도보다, 주어진 구조와 평가용 mock을 존중하는지 볼 가능성이 높다.
 
-1. **Unknown repo reading**
-   - 근거: starter와 기존 테스트가 있는 repository 형태
-   - 추론: 새 프로젝트 생성 속도보다 기존 구조를 빠르게 파악하는 능력이 중요할 가능성이 높다.
-2. **Regression safety**
-   - 근거: existing tests가 학습 포인트
-   - 추론: 새 기능만 맞추는 것보다 기존 behavior를 깨뜨리지 않는 것이 중요할 가능성이 높다.
-3. **Minimal implementation**
-   - 근거: starter/grading 환경에서 요구 behavior 구현
-   - 추론: 광범위한 rewrite보다 필요한 범위의 작은 변경이 설명·검증에 유리하다.
-4. **Executable evidence**
-   - 근거: 테스트/평가용 서버가 존재하는 과제 형태
-   - 추론: “코드가 좋아 보임”보다 실제 실행 결과가 강한 Evidence다.
+2. Signal: core(CRUD + 팀 알고리즘 + flaky API)를 bonus보다 우선하는 scope 판단
+   - Evidence from README: Brownie Points는 “not required”. 평가 기준 1번은 알고리즘 correctness/efficiency, 9번이 bonus
+   - Why I infer this: auth/CI/pagination에 시간을 쓰고 form-team이나 retry가 비면 감점 위험이 클 가능성이 높다.
 
-## Candidate evidence
+3. Signal: 실행 가능한 테스트와 재현 가능한 설명이 Evidence다
+   - Evidence from README: unit tests 요구, `poetry run pytest`, `SUBMISSION.md`에 복잡도·가정·known issues
+   - Why I infer this: “코드가 좋아 보임”보다 pytest 통과와 알고리즘 설명이 평가 근거가 될 가능성이 높다.
 
-- 기존 test + 새/수정 test 통과 결과
-- 변경 파일이 제한된 `git diff`
-- run/test 명령이 명확한 README
-- 요구사항별 구현 위치 메모
+4. Signal: 외부 의존성 실패를 우아하게 다루는 능력
+   - Evidence from README: mock은 10% 실패·지연. retry 필수, parallel/cache 권장. mock 파일은 건드리지 말 것
+   - Why I infer this: happy path만 만들고 flaky 응답을 무시하면 Part 3를 충족하지 못한다고 볼 가능성이 높다.
 
-## High-risk mistakes
+5. Signal: 모호한 알고리즘 요구를 assumption으로 고정하는 능력
+   - Evidence from README: overlap 최소, 평균 expertise, coverage 우선순위가 있고 예시는 하나뿐. SUBMISSION.md에 assumptions를 적으라고 한다
+   - Why I infer this: 최적해를 단정하지 않고 목표 함수와 근사/제약(5초)을 문서로 남기는 사람을 볼 가능성이 높다.
 
-- 기존 tests를 읽기 전에 구현 시작
-- repository convention을 무시한 대규모 rewrite
-- grading/mock 환경을 임의로 바꿔 문제를 우회
+### Candidate Evidence
+- [x] 실행 명령 — `poetry run mock` / `poetry run dev` / `poetry run pytest`가 그대로 동작해야 평가자가 재현할 수 있다.
+- [x] 핵심 test — Project/Candidate CRUD, form-team 예시 2개, 스킬을 다 못 덮는 경우, flaky score retry. 평가 기준에 unit test가 있다.
+- [x] README / assumptions — `SUBMISSION.md`에 알고리즘·복잡도·가정·known issues. 원문이 제출 문서로 요구한다.
+- [x] known limitation — Brownie(auth, pagination, CI)를 안 했다면 명시. bonus를 core처럼 위장하지 말라는 신호다.
+- [ ] diff가 작은 이유 — 원문이 새 repo도 허용하므로 필수 Evidence는 아니다. boilerplate를 쓰면 mock.py를 안 고친 diff가 강한 신호가 된다.
+- [ ] PR description — 제출은 GitHub 링크이지 PR 형식이 아니다.
+- [ ] AI usage / verification — 원문에 AI 정책이 없어 필수 Evidence가 아니다. 썼다면 검증 기록을 남기는 편이 안전하다.
 
----
+### High-risk mistakes
+- mock.py를 고쳐 실패를 없애거나, retry 없이 Part 3를 끝냈다고 보기
+- Brownie(인증, CI, pagination)에 시간을 쓰고 form-team 또는 unit test가 빠짐
+- boilerplate application name/실행 명령을 바꿔 평가자가 `poetry run pytest`를 못 돌림
+- SUBMISSION.md 없이 코드만 제출하거나, 알고리즘 복잡도·가정을 안 적음
+- 예제 JSON 2개만 하드코딩하고 제약(team_size≤10, candidates≤100, 5초)을 무시
 
-# 3. Public Source 2 — FeedMe SE Take-home Assignment
-
-- Source: https://github.com/feedmepos/se-take-home-assignment
-- 분류: **기업 first-party 공개 SE Take-home Assignment**
-- 과정 내 재사용 Day: Day 81
-
-## Observed / curriculum-supported facts
-
-- AI 사용이 가능하다고 공개 assignment에서 안내한다.
-- 직접 testing을 요구한다.
-- GitHub Flow / PR 방식이 학습 포인트다.
-- GitHub Actions check를 사용한다.
-- 과도한 기술보다 clean implementation을 강조하는 공개 assignment로 사용한다.
-
-## Inferred evaluation signals
-
-1. **AI fluency + ownership**
-   - 근거: AI 사용 가능과 직접 testing이 함께 존재
-   - 추론: AI 사용량보다 AI 결과를 검증하고 소유하는 태도를 볼 가능성이 높다.
-2. **Delivery workflow**
-   - 근거: GitHub Flow / PR / Actions
-   - 추론: 최종 코드뿐 아니라 review 가능한 변경 단위와 자동 검증을 중요하게 볼 가능성이 높다.
-3. **Judgment against overengineering**
-   - 근거: clean implementation 강조
-   - 추론: 도구/architecture 개수보다 문제에 맞는 단순하고 설명 가능한 선택이 유리하다.
-4. **Human verification**
-   - 근거: 직접 testing
-   - 추론: AI가 “완료”라고 한 상태는 Evidence로 충분하지 않다.
-
-## Candidate evidence
-
-- 로컬 test command와 observed result
-- CI check 통과
-- 요구사항→변경→검증→risk가 보이는 PR description
-- AI를 썼다면 accept/reject/verification 기록
-
-## High-risk mistakes
-
-- AI 생성 코드를 읽지 않고 제출
-- CI가 있으니 로컬 테스트를 생략
-- “실무처럼 보이게” 하려고 불필요한 인프라/서비스를 추가
+### practice.md 학습 질문
+1. 기존 구조를 존중해야 할 신호: 권장 boilerplate, 같은 application name, `mock.py` 수정 금지, 제공된 run/test 명령.
+2. grading/test 환경이 구현 순서를 바꾸는 점: 구현 전에 `poetry run mock`과 기존 `test_index`를 돌려 재현 경로를 고정한다. 그다음 CRUD → form-team → flaky score 순이 안전하다.
+3. 큰 rewrite보다 작은 안전한 확장이 설명하기 쉽다. 원문은 자체 FastAPI setup도 허용하지만, mock 연동·pytest·application name을 바꾸면 설명이 어려워진다.
 
 ---
 
-# 4. Public Source 3 — Ello 2025 Full-stack Take-home
+# 3. FeedMe SE Take-home Assignment
 
-- Source: https://github.com/ElloTechnology/2025-full-stack-take-home
-- 분류: **기업 first-party 공개 Full-stack Take-home**
-- 과정 내 재사용 Day: Day 84
+### Observed Facts
+- Source type:
+- Starting point:
+- Explicit timebox:
+- AI policy:
+- Internet/document policy:
+- Required behavior:
+- Test/build/run requirement:
+- Submission format:
+- Documentation requirement:
+- Public/fork restriction:
 
-## Observed / curriculum-supported facts
-
-- 4~8시간 범위를 명시한 공개 Full-stack Take-home으로 사용한다.
-- AI assistant 사용을 장려하는 과제로 분류한다.
-- AI-powered learning companion 맥락에서 voice/session, LLM integration, async/data flow가 학습 포인트다.
-- failure handling, architecture/data-flow, trade-off, AI usage 설명을 훈련한다.
-
-## Inferred evaluation signals
-
-1. **Timeboxing / scope judgment**
-   - 근거: 4~8시간 범위
-   - 추론: 모든 기능을 완벽히 만들기보다 핵심 흐름을 선택하고 포기 기준을 설명하는 능력이 중요할 가능성이 높다.
-2. **Integration reasoning**
-   - 근거: voice/LLM/async 흐름
-   - 추론: 단일 CRUD가 아니라 외부 서비스·비동기 경계와 실패를 다루는 사고를 볼 가능성이 높다.
-3. **AI-assisted delivery**
-   - 근거: AI assistant 사용 장려
-   - 추론: AI를 활용하더라도 architecture, data flow, failure handling을 사람이 설명해야 한다.
-4. **Trade-off communication**
-   - 근거: 제한 시간 + 여러 integration 요소
-   - 추론: 완성하지 못한 선택을 숨기기보다 우선순위와 known limitation을 명시하는 것이 중요하다.
-
-## Candidate evidence
-
-- 핵심 end-to-end flow가 동작하는 demo/test
-- architecture/data-flow 그림
-- 외부 서비스 실패 처리 설명
-- 시간 제한 안에서 포기한 항목과 다음 개선 순서
-- AI 사용 범위와 직접 검증한 항목
-
-## High-risk mistakes
-
-- LLM/voice 기능 수를 늘리느라 핵심 사용자 흐름이 깨짐
-- happy path만 구현하고 외부 API 실패/timeout을 설명하지 못함
-- AI가 만든 integration code를 이해하지 못함
+### Unknown / Not stated
+- ...
 
 ---
 
-# 5. 세 과제 비교
+# 4. ElloTechnology 2025 Full-stack Take-home
 
-| Source | Shape | AI 관점 | 주요 제약 신호 | Inferred evaluator signal | 강한 Candidate Evidence |
-|---|---|---|---|---|---|
-| Simplify Backend | Existing/starter repo backend | 실제 원문 정책 확인 필요 | existing tests / grading context | repo reading, regression safety, minimal patch | tests, small diff, reproducible run |
-| FeedMe | SE take-home + PR workflow | AI 사용 가능 | 직접 test, PR, Actions, clean implementation | AI ownership, delivery quality, judgment | local test + CI + PR story + AI verification |
-| Ello 2025 | Timeboxed full-stack AI | AI assistant 장려 | 4~8h, multiple integrations | scope judgment, integration/failure reasoning | working core flow, data-flow, trade-off, AI usage |
+### Observed Facts
+- Source type:
+- Starting point:
+- Explicit timebox:
+- AI policy:
+- Internet/document policy:
+- Required behavior:
+- Test/build/run requirement:
+- Submission format:
+- Documentation requirement:
+- Public/fork restriction:
 
----
-
-# 6. 공통 평가 신호
-
-세 source의 성격은 다르지만 학습 관점에서 다음 공통점을 뽑을 수 있다.
-
-1. **기능 개수보다 핵심 요구사항을 안정적으로 끝내는 판단**
-2. **실행/테스트처럼 다른 사람이 확인할 수 있는 Evidence**
-3. **도구를 쓰더라도 결과를 사람이 소유하고 설명하는 능력**
-4. **기존 맥락과 제한 시간을 존중하는 scope 통제**
-5. **README/PR/architecture note 등 reviewer가 이해할 수 있는 전달 품질**
-
----
-
-# 7. 나의 Day 1 대응 원칙
-
-앞으로 실제 과제를 받으면 첫 15분에 다음 순서를 지킨다.
-
-```text
-1. AI/인터넷/IDE/공개 제출 정책 확인
-2. Greenfield인지 Existing Repo인지 확인
-3. Must-looking behavior와 제약 표시
-4. 테스트/실행/제출 Evidence 요구 확인
-5. 시간 제한 확인
-6. 모호한 점과 가정 후보 메모
-7. 그 다음에만 구현 계획 시작
-```
-
-Day 2부터 3~6번을 더 정교하게 `REQUIREMENTS.md`와 Ambiguity Log로 만든다.
-
----
-
-# 8. Day 1 Self Review
-
-- [ ] `Observed`에 원문/커리큘럼이 지원하지 않는 내용을 단정하지 않았는가?
-- [ ] `Inferred`를 실제 기업 scoring rubric처럼 표현하지 않았는가?
-- [ ] 세 과제가 각각 왜 다른 연습을 제공하는지 설명할 수 있는가?
-- [ ] AI 허용 여부와 repository shape를 별개의 축으로 볼 수 있는가?
-- [ ] “좋은 제출 = 많은 기술”이라는 생각에서 벗어났는가?
+### Unknown / Not stated
+- ...
