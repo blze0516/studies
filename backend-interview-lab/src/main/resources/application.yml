@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: backend-interview-lab
+
+server:
+  port: 8080

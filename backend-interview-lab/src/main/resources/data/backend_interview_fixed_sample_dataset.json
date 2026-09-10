@@ -1,0 +1,2382 @@
+{
+  "meta": {
+    "dataset_name": "backend-interview-fixed-sample-dataset",
+    "dataset_version": "1.0.0",
+    "fixed": true,
+    "synthetic": true,
+    "description": "대기업 IT/백엔드/서버 개발자 면접 실습용 고정 커머스 데이터셋. 모든 값은 가상 데이터이며 Day 전체에서 변경하지 않는다.",
+    "timezone": "Asia/Seoul",
+    "currency": "KRW",
+    "reference_date": "2026-09-01",
+    "canonical_project_path": "src/main/resources/data/backend_interview_fixed_sample_dataset.json",
+    "deterministic_expansion_seed": 20260910
+  },
+  "scenarios": {
+    "sold_out_product_id": "P015",
+    "low_stock_product_id": "P014",
+    "high_price_product_id": "P013",
+    "payment_failed_order_id": "O0007",
+    "cancelled_order_id": "O0011",
+    "pending_order_id": "O0006",
+    "duplicate_event_id": "EV0025",
+    "duplicate_event_original_id": "EV0016",
+    "retry_event_order_id": "O0007",
+    "slow_api_trace_id": "trace-0013",
+    "server_error_trace_id": "trace-0021",
+    "payment_error_trace_id": "trace-0034",
+    "rate_limited_trace_id": "trace-0029",
+    "recommended_index_exercise": {
+      "table": "orders",
+      "filter_columns": [
+        "user_id",
+        "created_at"
+      ],
+      "sort_column": "created_at"
+    }
+  },
+  "users": [
+    {
+      "user_id": "U001",
+      "name": "김하늘",
+      "email": "sky.kim@example.test",
+      "grade": "VIP",
+      "status": "ACTIVE",
+      "joined_at": "2025-01-15T09:10:00+09:00"
+    },
+    {
+      "user_id": "U002",
+      "name": "이도윤",
+      "email": "doyoon.lee@example.test",
+      "grade": "GOLD",
+      "status": "ACTIVE",
+      "joined_at": "2025-02-03T13:20:00+09:00"
+    },
+    {
+      "user_id": "U003",
+      "name": "박서연",
+      "email": "seoyeon.park@example.test",
+      "grade": "SILVER",
+      "status": "ACTIVE",
+      "joined_at": "2025-03-11T18:05:00+09:00"
+    },
+    {
+      "user_id": "U004",
+      "name": "최민준",
+      "email": "minjun.choi@example.test",
+      "grade": "BASIC",
+      "status": "ACTIVE",
+      "joined_at": "2025-04-22T11:40:00+09:00"
+    },
+    {
+      "user_id": "U005",
+      "name": "정유진",
+      "email": "yujin.jung@example.test",
+      "grade": "GOLD",
+      "status": "ACTIVE",
+      "joined_at": "2025-05-09T08:55:00+09:00"
+    },
+    {
+      "user_id": "U006",
+      "name": "한지우",
+      "email": "jiwoo.han@example.test",
+      "grade": "BASIC",
+      "status": "ACTIVE",
+      "joined_at": "2025-06-17T15:15:00+09:00"
+    },
+    {
+      "user_id": "U007",
+      "name": "오현우",
+      "email": "hyunwoo.oh@example.test",
+      "grade": "SILVER",
+      "status": "ACTIVE",
+      "joined_at": "2025-07-01T10:25:00+09:00"
+    },
+    {
+      "user_id": "U008",
+      "name": "윤수빈",
+      "email": "subin.yoon@example.test",
+      "grade": "VIP",
+      "status": "ACTIVE",
+      "joined_at": "2025-07-26T19:10:00+09:00"
+    },
+    {
+      "user_id": "U009",
+      "name": "장예준",
+      "email": "yejun.jang@example.test",
+      "grade": "BASIC",
+      "status": "SUSPENDED",
+      "joined_at": "2025-08-14T12:30:00+09:00"
+    },
+    {
+      "user_id": "U010",
+      "name": "임채원",
+      "email": "chaewon.lim@example.test",
+      "grade": "GOLD",
+      "status": "ACTIVE",
+      "joined_at": "2025-09-02T16:45:00+09:00"
+    },
+    {
+      "user_id": "U011",
+      "name": "신준호",
+      "email": "junho.shin@example.test",
+      "grade": "SILVER",
+      "status": "ACTIVE",
+      "joined_at": "2025-10-18T09:00:00+09:00"
+    },
+    {
+      "user_id": "U012",
+      "name": "배지민",
+      "email": "jimin.bae@example.test",
+      "grade": "BASIC",
+      "status": "ACTIVE",
+      "joined_at": "2025-12-07T14:35:00+09:00"
+    }
+  ],
+  "products": [
+    {
+      "product_id": "P001",
+      "name": "기계식 키보드",
+      "category": "DIGITAL",
+      "price": 89000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P002",
+      "name": "무선 마우스",
+      "category": "DIGITAL",
+      "price": 49000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P003",
+      "name": "USB-C 허브",
+      "category": "DIGITAL",
+      "price": 39000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P004",
+      "name": "27인치 모니터",
+      "category": "DIGITAL",
+      "price": 289000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P005",
+      "name": "노트북 거치대",
+      "category": "OFFICE",
+      "price": 42000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P006",
+      "name": "텀블러 500ml",
+      "category": "LIVING",
+      "price": 21000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P007",
+      "name": "데스크 매트",
+      "category": "OFFICE",
+      "price": 18000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P008",
+      "name": "백엔드 면접 노트",
+      "category": "BOOK",
+      "price": 16000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P009",
+      "name": "Java 심화 가이드",
+      "category": "BOOK",
+      "price": 32000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P010",
+      "name": "Spring 실전 가이드",
+      "category": "BOOK",
+      "price": 36000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P011",
+      "name": "보조 배터리",
+      "category": "DIGITAL",
+      "price": 45000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P012",
+      "name": "웹캠",
+      "category": "DIGITAL",
+      "price": 79000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P013",
+      "name": "스탠딩 데스크",
+      "category": "OFFICE",
+      "price": 399000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P014",
+      "name": "노이즈 캔슬링 헤드셋",
+      "category": "DIGITAL",
+      "price": 159000,
+      "status": "SALE"
+    },
+    {
+      "product_id": "P015",
+      "name": "한정판 개발자 머그",
+      "category": "LIVING",
+      "price": 27000,
+      "status": "SOLD_OUT"
+    }
+  ],
+  "inventory": [
+    {
+      "product_id": "P001",
+      "quantity": 48,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P002",
+      "quantity": 91,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P003",
+      "quantity": 74,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P004",
+      "quantity": 18,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P005",
+      "quantity": 63,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P006",
+      "quantity": 120,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P007",
+      "quantity": 150,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P008",
+      "quantity": 210,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P009",
+      "quantity": 97,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P010",
+      "quantity": 83,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P011",
+      "quantity": 37,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P012",
+      "quantity": 22,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P013",
+      "quantity": 7,
+      "reserved_quantity": 1,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P014",
+      "quantity": 2,
+      "reserved_quantity": 2,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    },
+    {
+      "product_id": "P015",
+      "quantity": 0,
+      "reserved_quantity": 0,
+      "updated_at": "2026-09-01T00:00:00+09:00"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "O0001",
+      "user_id": "U001",
+      "status": "COMPLETED",
+      "total_amount": 105000,
+      "created_at": "2026-08-02T05:00:00+09:00",
+      "updated_at": "2026-08-02T05:15:00+09:00"
+    },
+    {
+      "order_id": "O0002",
+      "user_id": "U002",
+      "status": "COMPLETED",
+      "total_amount": 98000,
+      "created_at": "2026-08-03T00:00:00+09:00",
+      "updated_at": "2026-08-03T00:15:00+09:00"
+    },
+    {
+      "order_id": "O0003",
+      "user_id": "U003",
+      "status": "COMPLETED",
+      "total_amount": 68000,
+      "created_at": "2026-08-03T19:00:00+09:00",
+      "updated_at": "2026-08-03T19:15:00+09:00"
+    },
+    {
+      "order_id": "O0004",
+      "user_id": "U004",
+      "status": "COMPLETED",
+      "total_amount": 99000,
+      "created_at": "2026-08-04T14:00:00+09:00",
+      "updated_at": "2026-08-04T14:15:00+09:00"
+    },
+    {
+      "order_id": "O0005",
+      "user_id": "U005",
+      "status": "COMPLETED",
+      "total_amount": 289000,
+      "created_at": "2026-08-06T09:00:00+09:00",
+      "updated_at": "2026-08-06T09:15:00+09:00"
+    },
+    {
+      "order_id": "O0006",
+      "user_id": "U006",
+      "status": "PENDING",
+      "total_amount": 87000,
+      "created_at": "2026-08-07T04:00:00+09:00",
+      "updated_at": "2026-08-07T04:07:00+09:00"
+    },
+    {
+      "order_id": "O0007",
+      "user_id": "U007",
+      "status": "PAYMENT_FAILED",
+      "total_amount": 79000,
+      "created_at": "2026-08-07T23:00:00+09:00",
+      "updated_at": "2026-08-07T23:07:00+09:00"
+    },
+    {
+      "order_id": "O0008",
+      "user_id": "U008",
+      "status": "COMPLETED",
+      "total_amount": 195000,
+      "created_at": "2026-08-08T18:00:00+09:00",
+      "updated_at": "2026-08-08T18:15:00+09:00"
+    },
+    {
+      "order_id": "O0009",
+      "user_id": "U009",
+      "status": "CANCELLED",
+      "total_amount": 53000,
+      "created_at": "2026-08-09T13:00:00+09:00",
+      "updated_at": "2026-08-09T13:07:00+09:00"
+    },
+    {
+      "order_id": "O0010",
+      "user_id": "U010",
+      "status": "COMPLETED",
+      "total_amount": 399000,
+      "created_at": "2026-08-11T08:00:00+09:00",
+      "updated_at": "2026-08-11T08:15:00+09:00"
+    },
+    {
+      "order_id": "O0011",
+      "user_id": "U011",
+      "status": "CANCELLED",
+      "total_amount": 27000,
+      "created_at": "2026-08-12T03:00:00+09:00",
+      "updated_at": "2026-08-12T03:07:00+09:00"
+    },
+    {
+      "order_id": "O0012",
+      "user_id": "U012",
+      "status": "COMPLETED",
+      "total_amount": 138000,
+      "created_at": "2026-08-12T22:00:00+09:00",
+      "updated_at": "2026-08-12T22:15:00+09:00"
+    },
+    {
+      "order_id": "O0013",
+      "user_id": "U001",
+      "status": "COMPLETED",
+      "total_amount": 52000,
+      "created_at": "2026-08-13T17:00:00+09:00",
+      "updated_at": "2026-08-13T17:15:00+09:00"
+    },
+    {
+      "order_id": "O0014",
+      "user_id": "U002",
+      "status": "COMPLETED",
+      "total_amount": 328000,
+      "created_at": "2026-08-14T12:00:00+09:00",
+      "updated_at": "2026-08-14T12:15:00+09:00"
+    },
+    {
+      "order_id": "O0015",
+      "user_id": "U003",
+      "status": "COMPLETED",
+      "total_amount": 102000,
+      "created_at": "2026-08-16T07:00:00+09:00",
+      "updated_at": "2026-08-16T07:15:00+09:00"
+    },
+    {
+      "order_id": "O0016",
+      "user_id": "U004",
+      "status": "COMPLETED",
+      "total_amount": 90000,
+      "created_at": "2026-08-17T02:00:00+09:00",
+      "updated_at": "2026-08-17T02:15:00+09:00"
+    },
+    {
+      "order_id": "O0017",
+      "user_id": "U005",
+      "status": "COMPLETED",
+      "total_amount": 100000,
+      "created_at": "2026-08-17T21:00:00+09:00",
+      "updated_at": "2026-08-17T21:15:00+09:00"
+    },
+    {
+      "order_id": "O0018",
+      "user_id": "U006",
+      "status": "PENDING",
+      "total_amount": 159000,
+      "created_at": "2026-08-18T16:00:00+09:00",
+      "updated_at": "2026-08-18T16:07:00+09:00"
+    },
+    {
+      "order_id": "O0019",
+      "user_id": "U007",
+      "status": "COMPLETED",
+      "total_amount": 48000,
+      "created_at": "2026-08-19T11:00:00+09:00",
+      "updated_at": "2026-08-19T11:15:00+09:00"
+    },
+    {
+      "order_id": "O0020",
+      "user_id": "U008",
+      "status": "COMPLETED",
+      "total_amount": 488000,
+      "created_at": "2026-08-21T06:00:00+09:00",
+      "updated_at": "2026-08-21T06:15:00+09:00"
+    },
+    {
+      "order_id": "O0021",
+      "user_id": "U009",
+      "status": "PAYMENT_FAILED",
+      "total_amount": 49000,
+      "created_at": "2026-08-22T01:00:00+09:00",
+      "updated_at": "2026-08-22T01:07:00+09:00"
+    },
+    {
+      "order_id": "O0022",
+      "user_id": "U010",
+      "status": "COMPLETED",
+      "total_amount": 99000,
+      "created_at": "2026-08-22T20:00:00+09:00",
+      "updated_at": "2026-08-22T20:15:00+09:00"
+    },
+    {
+      "order_id": "O0023",
+      "user_id": "U011",
+      "status": "COMPLETED",
+      "total_amount": 123000,
+      "created_at": "2026-08-23T15:00:00+09:00",
+      "updated_at": "2026-08-23T15:15:00+09:00"
+    },
+    {
+      "order_id": "O0024",
+      "user_id": "U012",
+      "status": "CANCELLED",
+      "total_amount": 58000,
+      "created_at": "2026-08-24T10:00:00+09:00",
+      "updated_at": "2026-08-24T10:07:00+09:00"
+    },
+    {
+      "order_id": "O0025",
+      "user_id": "U001",
+      "status": "COMPLETED",
+      "total_amount": 289000,
+      "created_at": "2026-08-26T05:00:00+09:00",
+      "updated_at": "2026-08-26T05:15:00+09:00"
+    },
+    {
+      "order_id": "O0026",
+      "user_id": "U002",
+      "status": "COMPLETED",
+      "total_amount": 72000,
+      "created_at": "2026-08-27T00:00:00+09:00",
+      "updated_at": "2026-08-27T00:15:00+09:00"
+    },
+    {
+      "order_id": "O0027",
+      "user_id": "U003",
+      "status": "COMPLETED",
+      "total_amount": 146000,
+      "created_at": "2026-08-27T19:00:00+09:00",
+      "updated_at": "2026-08-27T19:15:00+09:00"
+    },
+    {
+      "order_id": "O0028",
+      "user_id": "U004",
+      "status": "PAYMENT_FAILED",
+      "total_amount": 159000,
+      "created_at": "2026-08-28T14:00:00+09:00",
+      "updated_at": "2026-08-28T14:07:00+09:00"
+    },
+    {
+      "order_id": "O0029",
+      "user_id": "U005",
+      "status": "PENDING",
+      "total_amount": 399000,
+      "created_at": "2026-08-30T09:00:00+09:00",
+      "updated_at": "2026-08-30T09:07:00+09:00"
+    },
+    {
+      "order_id": "O0030",
+      "user_id": "U008",
+      "status": "COMPLETED",
+      "total_amount": 124000,
+      "created_at": "2026-08-31T04:00:00+09:00",
+      "updated_at": "2026-08-31T04:15:00+09:00"
+    }
+  ],
+  "order_items": [
+    {
+      "order_item_id": "OI0001",
+      "order_id": "O0001",
+      "product_id": "P001",
+      "quantity": 1,
+      "unit_price": 89000,
+      "line_total": 89000
+    },
+    {
+      "order_item_id": "OI0002",
+      "order_id": "O0001",
+      "product_id": "P008",
+      "quantity": 1,
+      "unit_price": 16000,
+      "line_total": 16000
+    },
+    {
+      "order_item_id": "OI0003",
+      "order_id": "O0002",
+      "product_id": "P002",
+      "quantity": 2,
+      "unit_price": 49000,
+      "line_total": 98000
+    },
+    {
+      "order_item_id": "OI0004",
+      "order_id": "O0003",
+      "product_id": "P009",
+      "quantity": 1,
+      "unit_price": 32000,
+      "line_total": 32000
+    },
+    {
+      "order_item_id": "OI0005",
+      "order_id": "O0003",
+      "product_id": "P010",
+      "quantity": 1,
+      "unit_price": 36000,
+      "line_total": 36000
+    },
+    {
+      "order_item_id": "OI0006",
+      "order_id": "O0004",
+      "product_id": "P003",
+      "quantity": 1,
+      "unit_price": 39000,
+      "line_total": 39000
+    },
+    {
+      "order_item_id": "OI0007",
+      "order_id": "O0004",
+      "product_id": "P005",
+      "quantity": 1,
+      "unit_price": 42000,
+      "line_total": 42000
+    },
+    {
+      "order_item_id": "OI0008",
+      "order_id": "O0004",
+      "product_id": "P007",
+      "quantity": 1,
+      "unit_price": 18000,
+      "line_total": 18000
+    },
+    {
+      "order_item_id": "OI0009",
+      "order_id": "O0005",
+      "product_id": "P004",
+      "quantity": 1,
+      "unit_price": 289000,
+      "line_total": 289000
+    },
+    {
+      "order_item_id": "OI0010",
+      "order_id": "O0006",
+      "product_id": "P011",
+      "quantity": 1,
+      "unit_price": 45000,
+      "line_total": 45000
+    },
+    {
+      "order_item_id": "OI0011",
+      "order_id": "O0006",
+      "product_id": "P006",
+      "quantity": 2,
+      "unit_price": 21000,
+      "line_total": 42000
+    },
+    {
+      "order_item_id": "OI0012",
+      "order_id": "O0007",
+      "product_id": "P012",
+      "quantity": 1,
+      "unit_price": 79000,
+      "line_total": 79000
+    },
+    {
+      "order_item_id": "OI0013",
+      "order_id": "O0008",
+      "product_id": "P014",
+      "quantity": 1,
+      "unit_price": 159000,
+      "line_total": 159000
+    },
+    {
+      "order_item_id": "OI0014",
+      "order_id": "O0008",
+      "product_id": "P007",
+      "quantity": 2,
+      "unit_price": 18000,
+      "line_total": 36000
+    },
+    {
+      "order_item_id": "OI0015",
+      "order_id": "O0009",
+      "product_id": "P006",
+      "quantity": 1,
+      "unit_price": 21000,
+      "line_total": 21000
+    },
+    {
+      "order_item_id": "OI0016",
+      "order_id": "O0009",
+      "product_id": "P008",
+      "quantity": 2,
+      "unit_price": 16000,
+      "line_total": 32000
+    },
+    {
+      "order_item_id": "OI0017",
+      "order_id": "O0010",
+      "product_id": "P013",
+      "quantity": 1,
+      "unit_price": 399000,
+      "line_total": 399000
+    },
+    {
+      "order_item_id": "OI0018",
+      "order_id": "O0011",
+      "product_id": "P015",
+      "quantity": 1,
+      "unit_price": 27000,
+      "line_total": 27000
+    },
+    {
+      "order_item_id": "OI0019",
+      "order_id": "O0012",
+      "product_id": "P001",
+      "quantity": 1,
+      "unit_price": 89000,
+      "line_total": 89000
+    },
+    {
+      "order_item_id": "OI0020",
+      "order_id": "O0012",
+      "product_id": "P002",
+      "quantity": 1,
+      "unit_price": 49000,
+      "line_total": 49000
+    },
+    {
+      "order_item_id": "OI0021",
+      "order_id": "O0013",
+      "product_id": "P010",
+      "quantity": 1,
+      "unit_price": 36000,
+      "line_total": 36000
+    },
+    {
+      "order_item_id": "OI0022",
+      "order_id": "O0013",
+      "product_id": "P008",
+      "quantity": 1,
+      "unit_price": 16000,
+      "line_total": 16000
+    },
+    {
+      "order_item_id": "OI0023",
+      "order_id": "O0014",
+      "product_id": "P004",
+      "quantity": 1,
+      "unit_price": 289000,
+      "line_total": 289000
+    },
+    {
+      "order_item_id": "OI0024",
+      "order_id": "O0014",
+      "product_id": "P003",
+      "quantity": 1,
+      "unit_price": 39000,
+      "line_total": 39000
+    },
+    {
+      "order_item_id": "OI0025",
+      "order_id": "O0015",
+      "product_id": "P005",
+      "quantity": 2,
+      "unit_price": 42000,
+      "line_total": 84000
+    },
+    {
+      "order_item_id": "OI0026",
+      "order_id": "O0015",
+      "product_id": "P007",
+      "quantity": 1,
+      "unit_price": 18000,
+      "line_total": 18000
+    },
+    {
+      "order_item_id": "OI0027",
+      "order_id": "O0016",
+      "product_id": "P011",
+      "quantity": 2,
+      "unit_price": 45000,
+      "line_total": 90000
+    },
+    {
+      "order_item_id": "OI0028",
+      "order_id": "O0017",
+      "product_id": "P012",
+      "quantity": 1,
+      "unit_price": 79000,
+      "line_total": 79000
+    },
+    {
+      "order_item_id": "OI0029",
+      "order_id": "O0017",
+      "product_id": "P006",
+      "quantity": 1,
+      "unit_price": 21000,
+      "line_total": 21000
+    },
+    {
+      "order_item_id": "OI0030",
+      "order_id": "O0018",
+      "product_id": "P014",
+      "quantity": 1,
+      "unit_price": 159000,
+      "line_total": 159000
+    },
+    {
+      "order_item_id": "OI0031",
+      "order_id": "O0019",
+      "product_id": "P009",
+      "quantity": 1,
+      "unit_price": 32000,
+      "line_total": 32000
+    },
+    {
+      "order_item_id": "OI0032",
+      "order_id": "O0019",
+      "product_id": "P008",
+      "quantity": 1,
+      "unit_price": 16000,
+      "line_total": 16000
+    },
+    {
+      "order_item_id": "OI0033",
+      "order_id": "O0020",
+      "product_id": "P013",
+      "quantity": 1,
+      "unit_price": 399000,
+      "line_total": 399000
+    },
+    {
+      "order_item_id": "OI0034",
+      "order_id": "O0020",
+      "product_id": "P001",
+      "quantity": 1,
+      "unit_price": 89000,
+      "line_total": 89000
+    },
+    {
+      "order_item_id": "OI0035",
+      "order_id": "O0021",
+      "product_id": "P002",
+      "quantity": 1,
+      "unit_price": 49000,
+      "line_total": 49000
+    },
+    {
+      "order_item_id": "OI0036",
+      "order_id": "O0022",
+      "product_id": "P006",
+      "quantity": 3,
+      "unit_price": 21000,
+      "line_total": 63000
+    },
+    {
+      "order_item_id": "OI0037",
+      "order_id": "O0022",
+      "product_id": "P007",
+      "quantity": 2,
+      "unit_price": 18000,
+      "line_total": 36000
+    },
+    {
+      "order_item_id": "OI0038",
+      "order_id": "O0023",
+      "product_id": "P003",
+      "quantity": 2,
+      "unit_price": 39000,
+      "line_total": 78000
+    },
+    {
+      "order_item_id": "OI0039",
+      "order_id": "O0023",
+      "product_id": "P011",
+      "quantity": 1,
+      "unit_price": 45000,
+      "line_total": 45000
+    },
+    {
+      "order_item_id": "OI0040",
+      "order_id": "O0024",
+      "product_id": "P005",
+      "quantity": 1,
+      "unit_price": 42000,
+      "line_total": 42000
+    },
+    {
+      "order_item_id": "OI0041",
+      "order_id": "O0024",
+      "product_id": "P008",
+      "quantity": 1,
+      "unit_price": 16000,
+      "line_total": 16000
+    },
+    {
+      "order_item_id": "OI0042",
+      "order_id": "O0025",
+      "product_id": "P004",
+      "quantity": 1,
+      "unit_price": 289000,
+      "line_total": 289000
+    },
+    {
+      "order_item_id": "OI0043",
+      "order_id": "O0026",
+      "product_id": "P010",
+      "quantity": 2,
+      "unit_price": 36000,
+      "line_total": 72000
+    },
+    {
+      "order_item_id": "OI0044",
+      "order_id": "O0027",
+      "product_id": "P001",
+      "quantity": 1,
+      "unit_price": 89000,
+      "line_total": 89000
+    },
+    {
+      "order_item_id": "OI0045",
+      "order_id": "O0027",
+      "product_id": "P003",
+      "quantity": 1,
+      "unit_price": 39000,
+      "line_total": 39000
+    },
+    {
+      "order_item_id": "OI0046",
+      "order_id": "O0027",
+      "product_id": "P007",
+      "quantity": 1,
+      "unit_price": 18000,
+      "line_total": 18000
+    },
+    {
+      "order_item_id": "OI0047",
+      "order_id": "O0028",
+      "product_id": "P014",
+      "quantity": 1,
+      "unit_price": 159000,
+      "line_total": 159000
+    },
+    {
+      "order_item_id": "OI0048",
+      "order_id": "O0029",
+      "product_id": "P013",
+      "quantity": 1,
+      "unit_price": 399000,
+      "line_total": 399000
+    },
+    {
+      "order_item_id": "OI0049",
+      "order_id": "O0030",
+      "product_id": "P012",
+      "quantity": 1,
+      "unit_price": 79000,
+      "line_total": 79000
+    },
+    {
+      "order_item_id": "OI0050",
+      "order_id": "O0030",
+      "product_id": "P011",
+      "quantity": 1,
+      "unit_price": 45000,
+      "line_total": 45000
+    }
+  ],
+  "payments": [
+    {
+      "payment_id": "PAY0001",
+      "order_id": "O0001",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 105000,
+      "idempotency_key": "idem-o0001-v1",
+      "requested_at": "2026-08-02T05:00:05+09:00",
+      "approved_at": "2026-08-02T05:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0002",
+      "order_id": "O0002",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 98000,
+      "idempotency_key": "idem-o0002-v1",
+      "requested_at": "2026-08-03T00:00:05+09:00",
+      "approved_at": "2026-08-03T00:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0003",
+      "order_id": "O0003",
+      "method": "CARD",
+      "status": "COMPLETED",
+      "amount": 68000,
+      "idempotency_key": "idem-o0003-v1",
+      "requested_at": "2026-08-03T19:00:05+09:00",
+      "approved_at": "2026-08-03T19:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0004",
+      "order_id": "O0004",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 99000,
+      "idempotency_key": "idem-o0004-v1",
+      "requested_at": "2026-08-04T14:00:05+09:00",
+      "approved_at": "2026-08-04T14:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0005",
+      "order_id": "O0005",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 289000,
+      "idempotency_key": "idem-o0005-v1",
+      "requested_at": "2026-08-06T09:00:05+09:00",
+      "approved_at": "2026-08-06T09:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0006",
+      "order_id": "O0006",
+      "method": "CARD",
+      "status": "PENDING",
+      "amount": 87000,
+      "idempotency_key": "idem-o0006-v1",
+      "requested_at": "2026-08-07T04:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0007",
+      "order_id": "O0007",
+      "method": "BANK_TRANSFER",
+      "status": "FAILED",
+      "amount": 79000,
+      "idempotency_key": "idem-o0007-v1",
+      "requested_at": "2026-08-07T23:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0008",
+      "order_id": "O0008",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 195000,
+      "idempotency_key": "idem-o0008-v1",
+      "requested_at": "2026-08-08T18:00:05+09:00",
+      "approved_at": "2026-08-08T18:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0009",
+      "order_id": "O0009",
+      "method": "CARD",
+      "status": "REFUNDED",
+      "amount": 53000,
+      "idempotency_key": "idem-o0009-v1",
+      "requested_at": "2026-08-09T13:00:05+09:00",
+      "approved_at": "2026-08-09T13:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0010",
+      "order_id": "O0010",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 399000,
+      "idempotency_key": "idem-o0010-v1",
+      "requested_at": "2026-08-11T08:00:05+09:00",
+      "approved_at": "2026-08-11T08:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0011",
+      "order_id": "O0011",
+      "method": "EASY_PAY",
+      "status": "REFUNDED",
+      "amount": 27000,
+      "idempotency_key": "idem-o0011-v1",
+      "requested_at": "2026-08-12T03:00:05+09:00",
+      "approved_at": "2026-08-12T03:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0012",
+      "order_id": "O0012",
+      "method": "CARD",
+      "status": "COMPLETED",
+      "amount": 138000,
+      "idempotency_key": "idem-o0012-v1",
+      "requested_at": "2026-08-12T22:00:05+09:00",
+      "approved_at": "2026-08-12T22:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0013",
+      "order_id": "O0013",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 52000,
+      "idempotency_key": "idem-o0013-v1",
+      "requested_at": "2026-08-13T17:00:05+09:00",
+      "approved_at": "2026-08-13T17:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0014",
+      "order_id": "O0014",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 328000,
+      "idempotency_key": "idem-o0014-v1",
+      "requested_at": "2026-08-14T12:00:05+09:00",
+      "approved_at": "2026-08-14T12:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0015",
+      "order_id": "O0015",
+      "method": "CARD",
+      "status": "COMPLETED",
+      "amount": 102000,
+      "idempotency_key": "idem-o0015-v1",
+      "requested_at": "2026-08-16T07:00:05+09:00",
+      "approved_at": "2026-08-16T07:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0016",
+      "order_id": "O0016",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 90000,
+      "idempotency_key": "idem-o0016-v1",
+      "requested_at": "2026-08-17T02:00:05+09:00",
+      "approved_at": "2026-08-17T02:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0017",
+      "order_id": "O0017",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 100000,
+      "idempotency_key": "idem-o0017-v1",
+      "requested_at": "2026-08-17T21:00:05+09:00",
+      "approved_at": "2026-08-17T21:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0018",
+      "order_id": "O0018",
+      "method": "CARD",
+      "status": "PENDING",
+      "amount": 159000,
+      "idempotency_key": "idem-o0018-v1",
+      "requested_at": "2026-08-18T16:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0019",
+      "order_id": "O0019",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 48000,
+      "idempotency_key": "idem-o0019-v1",
+      "requested_at": "2026-08-19T11:00:05+09:00",
+      "approved_at": "2026-08-19T11:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0020",
+      "order_id": "O0020",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 488000,
+      "idempotency_key": "idem-o0020-v1",
+      "requested_at": "2026-08-21T06:00:05+09:00",
+      "approved_at": "2026-08-21T06:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0021",
+      "order_id": "O0021",
+      "method": "CARD",
+      "status": "FAILED",
+      "amount": 49000,
+      "idempotency_key": "idem-o0021-v1",
+      "requested_at": "2026-08-22T01:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0022",
+      "order_id": "O0022",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 99000,
+      "idempotency_key": "idem-o0022-v1",
+      "requested_at": "2026-08-22T20:00:05+09:00",
+      "approved_at": "2026-08-22T20:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0023",
+      "order_id": "O0023",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 123000,
+      "idempotency_key": "idem-o0023-v1",
+      "requested_at": "2026-08-23T15:00:05+09:00",
+      "approved_at": "2026-08-23T15:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0024",
+      "order_id": "O0024",
+      "method": "CARD",
+      "status": "CANCELLED",
+      "amount": 58000,
+      "idempotency_key": "idem-o0024-v1",
+      "requested_at": "2026-08-24T10:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0025",
+      "order_id": "O0025",
+      "method": "BANK_TRANSFER",
+      "status": "COMPLETED",
+      "amount": 289000,
+      "idempotency_key": "idem-o0025-v1",
+      "requested_at": "2026-08-26T05:00:05+09:00",
+      "approved_at": "2026-08-26T05:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0026",
+      "order_id": "O0026",
+      "method": "EASY_PAY",
+      "status": "COMPLETED",
+      "amount": 72000,
+      "idempotency_key": "idem-o0026-v1",
+      "requested_at": "2026-08-27T00:00:05+09:00",
+      "approved_at": "2026-08-27T00:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0027",
+      "order_id": "O0027",
+      "method": "CARD",
+      "status": "COMPLETED",
+      "amount": 146000,
+      "idempotency_key": "idem-o0027-v1",
+      "requested_at": "2026-08-27T19:00:05+09:00",
+      "approved_at": "2026-08-27T19:00:22+09:00"
+    },
+    {
+      "payment_id": "PAY0028",
+      "order_id": "O0028",
+      "method": "BANK_TRANSFER",
+      "status": "FAILED",
+      "amount": 159000,
+      "idempotency_key": "idem-o0028-v1",
+      "requested_at": "2026-08-28T14:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0029",
+      "order_id": "O0029",
+      "method": "EASY_PAY",
+      "status": "PENDING",
+      "amount": 399000,
+      "idempotency_key": "idem-o0029-v1",
+      "requested_at": "2026-08-30T09:00:05+09:00",
+      "approved_at": null
+    },
+    {
+      "payment_id": "PAY0030",
+      "order_id": "O0030",
+      "method": "CARD",
+      "status": "COMPLETED",
+      "amount": 124000,
+      "idempotency_key": "idem-o0030-v1",
+      "requested_at": "2026-08-31T04:00:05+09:00",
+      "approved_at": "2026-08-31T04:00:22+09:00"
+    }
+  ],
+  "stock_movements": [
+    {
+      "movement_id": "SM0001",
+      "product_id": "P001",
+      "order_id": "O0001",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-02T05:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0002",
+      "product_id": "P008",
+      "order_id": "O0001",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-02T05:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0003",
+      "product_id": "P002",
+      "order_id": "O0002",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-03T00:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0004",
+      "product_id": "P009",
+      "order_id": "O0003",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-03T19:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0005",
+      "product_id": "P010",
+      "order_id": "O0003",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-03T19:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0006",
+      "product_id": "P003",
+      "order_id": "O0004",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-04T14:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0007",
+      "product_id": "P005",
+      "order_id": "O0004",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-04T14:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0008",
+      "product_id": "P007",
+      "order_id": "O0004",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-04T14:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0009",
+      "product_id": "P004",
+      "order_id": "O0005",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-06T09:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0010",
+      "product_id": "P014",
+      "order_id": "O0008",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-08T18:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0011",
+      "product_id": "P007",
+      "order_id": "O0008",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-08T18:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0012",
+      "product_id": "P013",
+      "order_id": "O0010",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-11T08:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0013",
+      "product_id": "P001",
+      "order_id": "O0012",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-12T22:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0014",
+      "product_id": "P002",
+      "order_id": "O0012",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-12T22:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0015",
+      "product_id": "P010",
+      "order_id": "O0013",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-13T17:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0016",
+      "product_id": "P008",
+      "order_id": "O0013",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-13T17:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0017",
+      "product_id": "P004",
+      "order_id": "O0014",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-14T12:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0018",
+      "product_id": "P003",
+      "order_id": "O0014",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-14T12:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0019",
+      "product_id": "P005",
+      "order_id": "O0015",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-16T07:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0020",
+      "product_id": "P007",
+      "order_id": "O0015",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-16T07:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0021",
+      "product_id": "P011",
+      "order_id": "O0016",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-17T02:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0022",
+      "product_id": "P012",
+      "order_id": "O0017",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-17T21:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0023",
+      "product_id": "P006",
+      "order_id": "O0017",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-17T21:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0024",
+      "product_id": "P009",
+      "order_id": "O0019",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-19T11:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0025",
+      "product_id": "P008",
+      "order_id": "O0019",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-19T11:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0026",
+      "product_id": "P013",
+      "order_id": "O0020",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-21T06:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0027",
+      "product_id": "P001",
+      "order_id": "O0020",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-21T06:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0028",
+      "product_id": "P006",
+      "order_id": "O0022",
+      "type": "OUT",
+      "quantity": 3,
+      "created_at": "2026-08-22T20:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0029",
+      "product_id": "P007",
+      "order_id": "O0022",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-22T20:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0030",
+      "product_id": "P003",
+      "order_id": "O0023",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-23T15:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0031",
+      "product_id": "P011",
+      "order_id": "O0023",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-23T15:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0032",
+      "product_id": "P004",
+      "order_id": "O0025",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-26T05:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0033",
+      "product_id": "P010",
+      "order_id": "O0026",
+      "type": "OUT",
+      "quantity": 2,
+      "created_at": "2026-08-27T00:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0034",
+      "product_id": "P001",
+      "order_id": "O0027",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-27T19:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0035",
+      "product_id": "P003",
+      "order_id": "O0027",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-27T19:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0036",
+      "product_id": "P007",
+      "order_id": "O0027",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-27T19:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0037",
+      "product_id": "P012",
+      "order_id": "O0030",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-31T04:15:00+09:00"
+    },
+    {
+      "movement_id": "SM0038",
+      "product_id": "P011",
+      "order_id": "O0030",
+      "type": "OUT",
+      "quantity": 1,
+      "created_at": "2026-08-31T04:15:00+09:00"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EV0001",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0001",
+      "partition_key": "O0001",
+      "attempt": 1,
+      "occurred_at": "2026-08-02T05:00:00+09:00",
+      "payload": {
+        "order_id": "O0001",
+        "user_id": "U001",
+        "total_amount": 105000
+      }
+    },
+    {
+      "event_id": "EV0002",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0002",
+      "partition_key": "O0002",
+      "attempt": 1,
+      "occurred_at": "2026-08-03T00:00:00+09:00",
+      "payload": {
+        "order_id": "O0002",
+        "user_id": "U002",
+        "total_amount": 98000
+      }
+    },
+    {
+      "event_id": "EV0003",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0003",
+      "partition_key": "O0003",
+      "attempt": 1,
+      "occurred_at": "2026-08-03T19:00:00+09:00",
+      "payload": {
+        "order_id": "O0003",
+        "user_id": "U003",
+        "total_amount": 68000
+      }
+    },
+    {
+      "event_id": "EV0004",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0004",
+      "partition_key": "O0004",
+      "attempt": 1,
+      "occurred_at": "2026-08-04T14:00:00+09:00",
+      "payload": {
+        "order_id": "O0004",
+        "user_id": "U004",
+        "total_amount": 99000
+      }
+    },
+    {
+      "event_id": "EV0005",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0005",
+      "partition_key": "O0005",
+      "attempt": 1,
+      "occurred_at": "2026-08-06T09:00:00+09:00",
+      "payload": {
+        "order_id": "O0005",
+        "user_id": "U005",
+        "total_amount": 289000
+      }
+    },
+    {
+      "event_id": "EV0006",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0006",
+      "partition_key": "O0006",
+      "attempt": 1,
+      "occurred_at": "2026-08-07T04:00:00+09:00",
+      "payload": {
+        "order_id": "O0006",
+        "user_id": "U006",
+        "total_amount": 87000
+      }
+    },
+    {
+      "event_id": "EV0007",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0007",
+      "partition_key": "O0007",
+      "attempt": 1,
+      "occurred_at": "2026-08-07T23:00:00+09:00",
+      "payload": {
+        "order_id": "O0007",
+        "user_id": "U007",
+        "total_amount": 79000
+      }
+    },
+    {
+      "event_id": "EV0008",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0008",
+      "partition_key": "O0008",
+      "attempt": 1,
+      "occurred_at": "2026-08-08T18:00:00+09:00",
+      "payload": {
+        "order_id": "O0008",
+        "user_id": "U008",
+        "total_amount": 195000
+      }
+    },
+    {
+      "event_id": "EV0009",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0009",
+      "partition_key": "O0009",
+      "attempt": 1,
+      "occurred_at": "2026-08-09T13:00:00+09:00",
+      "payload": {
+        "order_id": "O0009",
+        "user_id": "U009",
+        "total_amount": 53000
+      }
+    },
+    {
+      "event_id": "EV0010",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0010",
+      "partition_key": "O0010",
+      "attempt": 1,
+      "occurred_at": "2026-08-11T08:00:00+09:00",
+      "payload": {
+        "order_id": "O0010",
+        "user_id": "U010",
+        "total_amount": 399000
+      }
+    },
+    {
+      "event_id": "EV0011",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0011",
+      "partition_key": "O0011",
+      "attempt": 1,
+      "occurred_at": "2026-08-12T03:00:00+09:00",
+      "payload": {
+        "order_id": "O0011",
+        "user_id": "U011",
+        "total_amount": 27000
+      }
+    },
+    {
+      "event_id": "EV0012",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0012",
+      "partition_key": "O0012",
+      "attempt": 1,
+      "occurred_at": "2026-08-12T22:00:00+09:00",
+      "payload": {
+        "order_id": "O0012",
+        "user_id": "U012",
+        "total_amount": 138000
+      }
+    },
+    {
+      "event_id": "EV0013",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0013",
+      "partition_key": "O0013",
+      "attempt": 1,
+      "occurred_at": "2026-08-13T17:00:00+09:00",
+      "payload": {
+        "order_id": "O0013",
+        "user_id": "U001",
+        "total_amount": 52000
+      }
+    },
+    {
+      "event_id": "EV0014",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0014",
+      "partition_key": "O0014",
+      "attempt": 1,
+      "occurred_at": "2026-08-14T12:00:00+09:00",
+      "payload": {
+        "order_id": "O0014",
+        "user_id": "U002",
+        "total_amount": 328000
+      }
+    },
+    {
+      "event_id": "EV0015",
+      "event_type": "ORDER_CREATED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0015",
+      "partition_key": "O0015",
+      "attempt": 1,
+      "occurred_at": "2026-08-16T07:00:00+09:00",
+      "payload": {
+        "order_id": "O0015",
+        "user_id": "U003",
+        "total_amount": 102000
+      }
+    },
+    {
+      "event_id": "EV0016",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0001",
+      "partition_key": "O0001",
+      "attempt": 1,
+      "occurred_at": "2026-08-02T05:15:00+09:00",
+      "payload": {
+        "order_id": "O0001",
+        "payment_id": "PAY0001",
+        "amount": 105000
+      }
+    },
+    {
+      "event_id": "EV0017",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0002",
+      "partition_key": "O0002",
+      "attempt": 1,
+      "occurred_at": "2026-08-03T00:15:00+09:00",
+      "payload": {
+        "order_id": "O0002",
+        "payment_id": "PAY0002",
+        "amount": 98000
+      }
+    },
+    {
+      "event_id": "EV0018",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0003",
+      "partition_key": "O0003",
+      "attempt": 1,
+      "occurred_at": "2026-08-03T19:15:00+09:00",
+      "payload": {
+        "order_id": "O0003",
+        "payment_id": "PAY0003",
+        "amount": 68000
+      }
+    },
+    {
+      "event_id": "EV0019",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0004",
+      "partition_key": "O0004",
+      "attempt": 1,
+      "occurred_at": "2026-08-04T14:15:00+09:00",
+      "payload": {
+        "order_id": "O0004",
+        "payment_id": "PAY0004",
+        "amount": 99000
+      }
+    },
+    {
+      "event_id": "EV0020",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0005",
+      "partition_key": "O0005",
+      "attempt": 1,
+      "occurred_at": "2026-08-06T09:15:00+09:00",
+      "payload": {
+        "order_id": "O0005",
+        "payment_id": "PAY0005",
+        "amount": 289000
+      }
+    },
+    {
+      "event_id": "EV0021",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0008",
+      "partition_key": "O0008",
+      "attempt": 1,
+      "occurred_at": "2026-08-08T18:15:00+09:00",
+      "payload": {
+        "order_id": "O0008",
+        "payment_id": "PAY0008",
+        "amount": 195000
+      }
+    },
+    {
+      "event_id": "EV0022",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0010",
+      "partition_key": "O0010",
+      "attempt": 1,
+      "occurred_at": "2026-08-11T08:15:00+09:00",
+      "payload": {
+        "order_id": "O0010",
+        "payment_id": "PAY0010",
+        "amount": 399000
+      }
+    },
+    {
+      "event_id": "EV0023",
+      "event_type": "PAYMENT_FAILED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0007",
+      "partition_key": "O0007",
+      "attempt": 1,
+      "occurred_at": "2026-08-07T02:07:30+09:00",
+      "payload": {
+        "order_id": "O0007",
+        "payment_id": "PAY0007",
+        "reason": "PG_TIMEOUT"
+      }
+    },
+    {
+      "event_id": "EV0024",
+      "event_type": "PAYMENT_FAILED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0007",
+      "partition_key": "O0007",
+      "attempt": 2,
+      "retry_of": "EV0023",
+      "occurred_at": "2026-08-07T02:08:10+09:00",
+      "payload": {
+        "order_id": "O0007",
+        "payment_id": "PAY0007",
+        "reason": "PG_TIMEOUT"
+      }
+    },
+    {
+      "event_id": "EV0025",
+      "event_type": "PAYMENT_COMPLETED",
+      "aggregate_type": "ORDER",
+      "aggregate_id": "O0001",
+      "partition_key": "O0001",
+      "attempt": 1,
+      "duplicate_of": "EV0016",
+      "occurred_at": "2026-08-02T05:15:00+09:00",
+      "payload": {
+        "order_id": "O0001",
+        "payment_id": "PAY0001",
+        "amount": 105000
+      }
+    }
+  ],
+  "api_logs": [
+    {
+      "log_id": "LOG0001",
+      "trace_id": "trace-0001",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 61,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T09:11:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0002",
+      "trace_id": "trace-0002",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 98,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T09:22:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0003",
+      "trace_id": "trace-0003",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 135,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T09:33:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0004",
+      "trace_id": "trace-0004",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 172,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T09:44:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0005",
+      "trace_id": "trace-0005",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 200,
+      "duration_ms": 209,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T09:55:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0006",
+      "trace_id": "trace-0006",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 56,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T10:06:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0007",
+      "trace_id": "trace-0007",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 93,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T10:17:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0008",
+      "trace_id": "trace-0008",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 130,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T10:28:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0009",
+      "trace_id": "trace-0009",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 167,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T10:39:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0010",
+      "trace_id": "trace-0010",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 204,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T10:50:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0011",
+      "trace_id": "trace-0011",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 200,
+      "duration_ms": 51,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T11:01:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0012",
+      "trace_id": "trace-0012",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 88,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T11:12:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0013",
+      "trace_id": "trace-0013",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 3180,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T11:23:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0014",
+      "trace_id": "trace-0014",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 162,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T11:34:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0015",
+      "trace_id": "trace-0015",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 199,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T11:45:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0016",
+      "trace_id": "trace-0016",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 46,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T11:56:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0017",
+      "trace_id": "trace-0017",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 200,
+      "duration_ms": 83,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T12:07:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0018",
+      "trace_id": "trace-0018",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 120,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T12:18:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0019",
+      "trace_id": "trace-0019",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 157,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T12:29:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0020",
+      "trace_id": "trace-0020",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 194,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T12:40:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0021",
+      "trace_id": "trace-0021",
+      "method": "POST",
+      "endpoint": "/api/orders/O0021",
+      "status_code": 500,
+      "duration_ms": 842,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T12:51:00+09:00",
+      "error": "Database connection pool exhausted"
+    },
+    {
+      "log_id": "LOG0022",
+      "trace_id": "trace-0022",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 78,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T13:02:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0023",
+      "trace_id": "trace-0023",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 200,
+      "duration_ms": 115,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T13:13:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0024",
+      "trace_id": "trace-0024",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 152,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T13:24:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0025",
+      "trace_id": "trace-0025",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 189,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T13:35:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0026",
+      "trace_id": "trace-0026",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 36,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T13:46:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0027",
+      "trace_id": "trace-0027",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 73,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T13:57:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0028",
+      "trace_id": "trace-0028",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 110,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T14:08:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0029",
+      "trace_id": "trace-0029",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 429,
+      "duration_ms": 41,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T14:19:00+09:00",
+      "error": "Rate limit exceeded"
+    },
+    {
+      "log_id": "LOG0030",
+      "trace_id": "trace-0030",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 184,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T14:30:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0031",
+      "trace_id": "trace-0031",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 31,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T14:41:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0032",
+      "trace_id": "trace-0032",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 68,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T14:52:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0033",
+      "trace_id": "trace-0033",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 105,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T15:03:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0034",
+      "trace_id": "trace-0034",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 500,
+      "duration_ms": 1265,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T15:14:00+09:00",
+      "error": "Payment gateway timeout"
+    },
+    {
+      "log_id": "LOG0035",
+      "trace_id": "trace-0035",
+      "method": "POST",
+      "endpoint": "/api/payments",
+      "status_code": 200,
+      "duration_ms": 179,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T15:25:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0036",
+      "trace_id": "trace-0036",
+      "method": "GET",
+      "endpoint": "/api/users/U001/orders",
+      "status_code": 200,
+      "duration_ms": 26,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T15:36:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0037",
+      "trace_id": "trace-0037",
+      "method": "GET",
+      "endpoint": "/api/products/P001",
+      "status_code": 200,
+      "duration_ms": 63,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T15:47:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0038",
+      "trace_id": "trace-0038",
+      "method": "GET",
+      "endpoint": "/api/products",
+      "status_code": 200,
+      "duration_ms": 100,
+      "instance": "backend-3",
+      "timestamp": "2026-08-20T15:58:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0039",
+      "trace_id": "trace-0039",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status_code": 201,
+      "duration_ms": 137,
+      "instance": "backend-1",
+      "timestamp": "2026-08-20T16:09:00+09:00",
+      "error": null
+    },
+    {
+      "log_id": "LOG0040",
+      "trace_id": "trace-0040",
+      "method": "GET",
+      "endpoint": "/api/orders/O0001",
+      "status_code": 200,
+      "duration_ms": 174,
+      "instance": "backend-2",
+      "timestamp": "2026-08-20T16:20:00+09:00",
+      "error": null
+    }
+  ]
+}
