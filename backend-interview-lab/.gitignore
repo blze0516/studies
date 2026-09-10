@@ -1,0 +1,11 @@
+# Gradle
+.gradle/
+build/
+
+# IntelliJ / Cursor
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
