@@ -2,6 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
+
 def get_grade(score):
     if score >= 90:
         return "A"
@@ -13,15 +14,13 @@ def get_grade(score):
         return "D"
     return "F"
 
-def solve() -> None:
-    # 입력: 85
-    # 핵심 조건: 점수 score에 따라 등급을 반환하는 get_grade(score)를 작성하라.
-    # 예상 시간복잡도: O(1)
-    score = int(input())
-    
-    print(get_grade(score))
 
-    pass
+def solve() -> None:
+    # [채점] 정답
+    # 시간복잡도: O(1)  — 원본과 동일. 등급 구간을 정해진 횟수만 비교한다.
+    # 공간복잡도: O(1)  — 점수 변수만 사용한다.
+    score = int(input())
+    print(get_grade(score))
 
 
 if __name__ == "__main__":

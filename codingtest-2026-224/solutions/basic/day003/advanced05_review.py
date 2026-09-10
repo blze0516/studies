@@ -2,43 +2,32 @@ import sys
 
 input = sys.stdin.readline
 
+
 def get_total_price(price, quantity):
     return price * quantity
+
 
 def get_discounted_price(total_price, discount):
     return total_price - total_price * discount // 100
 
+
 def can_pay(money, discounted_total_price):
     return money >= discounted_total_price
 
+
 def solve() -> None:
-    # 입력: 3000 3 10 9000
-    # 핵심 조건: 상품 가격 price, 수량 quantity, 쿠폰 할인율 discount, 가진 돈 money가 주어진다.
-
-    # 다음 함수를 각각 만든다.
-
-    # get_total_price
-    # get_discounted_price
-    # can_pay
-    # 처리 순서:
-
-    # 상품 가격 × 수량
-    # → 할인 적용
-    # → 가진 돈으로 결제 가능한지 판정
-    # 결제 가능하면 최종 가격을 출력하고, 불가능하면 NO를 출력하라.
-    # 예상 시간복잡도: O(1)
+    # [채점] 정답
+    # 시간복잡도: O(1)  — 원본과 동일. 함수가 세 개여도 곱셈·할인·비교만 하므로 고정 횟수다.
+    # 공간복잡도: O(1)  — 정수 변수만 사용한다.
     price, quantity, discount, money = map(int, input().split())
-    
     total_price = get_total_price(price, quantity)
-    
     discounted_total_price = get_discounted_price(total_price, discount)
-    
+
     if can_pay(money, discounted_total_price):
         print(discounted_total_price)
     else:
         print("NO")
-    
-    pass
+
 
 if __name__ == "__main__":
     solve()

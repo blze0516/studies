@@ -2,30 +2,26 @@ import sys
 
 input = sys.stdin.readline
 
+
 def get_final_price(price, discount):
     return price - price * discount // 100
+
 
 def can_buy(money, final_price):
     return money >= final_price
 
+
 def solve() -> None:
-    # 입력: 8500 12000 30
-    # 핵심 조건: 현재 가진 돈 money, 상품 가격 price, 할인율 discount가 주어진다.
-    # 다음 두 함수를 반드시 만든다.
-    # get_final_price
-    # can_buy
-    # 할인 금액은 정수 나눗셈으로 계산한다.
-    # 구매 가능하면 BUY, 아니면 NO를 출력하라.
-    # 예상 시간복잡도: O(1)
+    # [채점] 정답
+    # 시간복잡도: O(1)  — 원본과 동일. 할인 계산과 비교만 한다. 함수가 두 개여도 고정 횟수다.
+    # 공간복잡도: O(1)  — 정수 변수만 사용한다.
     money, price, discount = map(int, input().split())
-    
     final_price = get_final_price(price, discount)
 
     if can_buy(money, final_price):
         print("BUY")
     else:
         print("NO")
-    pass
 
 
 if __name__ == "__main__":

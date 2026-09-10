@@ -2,22 +2,19 @@ import sys
 
 input = sys.stdin.readline
 
+
 def calculate_fare(base, base_distance, distance, extra_fee):
     if distance <= base_distance:
         return base
     return base + (distance - base_distance) * extra_fee
 
+
 def solve() -> None:
-    # 입력: 4800 2 5 1000
-    # 핵심 조건: 기본요금 base, 기본 거리 base_distance, 총 이동 거리 distance, 추가 1킬로미터당 요금 extra_fee가 주어진다.
-    # distance가 기본 거리 이하라면 기본요금만 낸다.
-    # 초과한 거리만큼 extra_fee가 추가된다.
-    # calculate_fare 함수를 작성하라.
-    # 예상 시간복잡도: O(1)
+    # [채점] 정답
+    # 시간복잡도: O(1)  — 원본과 동일. 거리 비교와 요금 계산만 한다.
+    # 공간복잡도: O(1)  — 정수 변수만 사용한다.
     base, base_distance, distance, extra_fee = map(int, input().split())
-            
     print(calculate_fare(base, base_distance, distance, extra_fee))
-    pass
 
 
 if __name__ == "__main__":

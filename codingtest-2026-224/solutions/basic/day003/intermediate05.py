@@ -2,21 +2,29 @@ import sys
 
 input = sys.stdin.readline
 
+def get_positive_info(numbers):
+    sum = 0
+    count = 0
+    for num in numbers:
+        if num > 0:
+            sum += num
+            count += 1
+    return sum, count
 
 def solve() -> None:
-    # 입력: 10 7 30
-    # 핵심 조건: 현재 경험치 exp, 매일 얻는 경험치 gain, 목표 경험치 target이 주어진다.
-    # 매일 gain만큼 경험치가 증가할 때 처음으로 target 이상이 되는 날 수를 출력하라.
-    # 처음부터 이미 목표 이상이라면 0을 출력한다.
+    # 입력: 5
+    #      -2 4 0 7 -1
+    # 핵심 조건: 정수 N과 N개의 정수가 주어진다.
+    # 양수들의 합과 양수의 개수를 구하는 get_positive_info(numbers) 함수를 작성하라.
+    # 함수는 두 값을 반환해야 한다.
+    # 출력은 합 개수 순서로 한다.
     # 예상 시간복잡도: O(N)
-    exp, gain, target = map(int, input().split())
-    days = 0
+    N = int(input())
+    numbers = list(map(int, input().split()))
     
-    while exp < target:
-        exp += gain
-        days += 1
+    sum, count = get_positive_info(numbers)
         
-    print(days)
+    print(sum, count)
 
     pass
 

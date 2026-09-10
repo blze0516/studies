@@ -2,6 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
+
 def count_multiples(n, k):
     count = 0
     for i in range(1, n + 1):
@@ -9,16 +10,13 @@ def count_multiples(n, k):
             count += 1
     return count
 
+
 def solve() -> None:
-    # 입력: 20 3
-    # 핵심 조건: 양의 정수 N, K가 주어진다.
-    # 1부터 N까지의 수 중 K의 배수 개수를 세는 count_multiples(n, k) 함수를 작성하라. 
-    # 예상 시간복잡도: O(N)
+    # [채점] 정답
+    # 시간복잡도: O(N)  — 원본과 동일. 1부터 N까지 한 번씩 본다.
+    # 공간복잡도: O(1)  — 카운터 변수만 사용한다.
     n, k = map(int, input().split())
-
     print(count_multiples(n, k))
-
-    pass
 
 
 if __name__ == "__main__":

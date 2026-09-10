@@ -2,6 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
+
 def get_smaller(a, b):
     if a < b:
         return a
@@ -9,14 +10,11 @@ def get_smaller(a, b):
 
 
 def solve() -> None:
-    # 입력: 10 3
-    # 핵심 조건: 두 정수 A, B가 주어진다. get_smaller(a, b) 함수를 작성해 더 작은 값을 반환하고 출력하라.
-    # 예상 시간복잡도: O(1)
+    # [채점] 정답
+    # 시간복잡도: O(1)  — 원본과 동일. 두 수 비교만 한다.
+    # 공간복잡도: O(1)  — 정수 변수만 사용한다.
     a, b = map(int, input().split())
-
     print(get_smaller(a, b))
-
-    pass
 
 
 if __name__ == "__main__":

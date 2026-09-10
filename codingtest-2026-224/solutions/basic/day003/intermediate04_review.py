@@ -2,6 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
+
 def count_passed(scores):
     count = 0
     for score in scores:
@@ -9,19 +10,14 @@ def count_passed(scores):
             count += 1
     return count
 
-def solve() -> None:
-    # 입력: 6
-    #       30 60 61 59 100 80
-    # 핵심 조건: 학생 수 N과 N개의 점수가 주어진다.
-    # count_passed(scores) 함수를 작성해 60점 이상인 학생의 수를 반환하라.
-    # 예상 시간복잡도: O(N)
-    N = int(input())
-    
-    scores = list(map(int, input().split()))
-            
-    print(count_passed(scores))
 
-    pass
+def solve() -> None:
+    # [채점] 정답
+    # 시간복잡도: O(N)  — 원본과 동일. 점수 N개를 한 번씩 본다.
+    # 공간복잡도: O(N)  — 점수 리스트를 저장한다.
+    n = int(input())
+    scores = list(map(int, input().split()))
+    print(count_passed(scores))
 
 
 if __name__ == "__main__":
