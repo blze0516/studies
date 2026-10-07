@@ -77,3 +77,20 @@ sed -n '1,120p' lessons/day001/assessment_landscape.md
 - Day 2: Complete
 - Day 3: Complete — Must/Should/Could + Timeboxing
 - Day 4: Complete — Acceptance Criteria + Definition of Done
+
+
+## Day 5
+
+주제: **Repository 초기화·Git 전략**
+
+핵심 산출물:
+
+- `lessons/day005/lecture.md`
+- `lessons/day005/practice.md`
+- `lessons/day005/exercises.md`
+- `lessons/day005/exercise-solutions.md`
+- `lessons/day005/review.md`
+- `docs/reviews/GIT_STRATEGY.md` — Starter/TODO, 학습자가 직접 완성
+- `drills/repository/day005-git-flow/` — `.git` 없이 제공되는 안전한 Git 실습 폴더
+
+Day 5부터 학습자가 직접 완성해야 하는 핵심 산출물은 **정답 완성본으로 제공하지 않는다.** Starter/TODO 형태로 제공하며, 강의와 실습을 수행하면서 채운다.
